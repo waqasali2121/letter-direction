@@ -47,7 +47,7 @@ def extract_text_with_groq(images, api_key):
     """
     # Vision OCR model. The extracted text is passed to GPT-OSS-120B.
     # This keeps the requested GPT-OSS-120B model as the extraction/structuring model.
-    vision_model = "meta-llama/llama-4-scout-17b-16e-instruct"
+    vision_model = "qwen/qwen3.8-27b"
     client = Groq(api_key=api_key)
 
     chunks = []
@@ -237,8 +237,8 @@ def main():
             "**AI model:** `openai/gpt-oss-120b`"
         )
         st.markdown(
-            "The app uses a vision-capable Groq model for image transcription "
-            "and GPT-OSS-120B for structured field extraction."
+            "Vision/OCR: `qwen/qwen3.8-27b`\n\n"
+            "Structured extraction: `openai/gpt-oss-120b`."
         )
 
     uploaded = st.file_uploader(
